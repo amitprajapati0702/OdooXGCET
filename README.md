@@ -96,46 +96,46 @@ The Dayflow HRMS is a digital solution designed to streamline core HR operations
 
 1. Signin (Admin/HR)
 
-![signin](https://github.com/amitprajapati0702/images/signin.jpec)
+![signin](https://github.com/amitprajapati0702/OdooXGCET/blob/main/images/signin.jpeg)
 
 
 
 2. Signup Page
 
-![signin](https://github.com/amitprajapati0702/images/signup.jpec)
+![signin](https://github.com/amitprajapati0702/OdooXGCET/blob/main/images/signup.jpeg)
 
 
 
 3. Employees Page
 
-![signin](https://github.com/amitprajapati0702/images/employees.jpec)
+![signin](https://github.com/amitprajapati0702/OdooXGCET/blob/main/images/employees.jpeg)
 
 
 4. Employees Salary
 
-![signin](https://github.com/amitprajapati0702/images/emp-salary.jpec)
+![signin](https://github.com/amitprajapati0702/OdooXGCET/blob/main/images/emp-salary.jpeg)
 
 
 5. Employees Details
 
-![signin](https://github.com/amitprajapati0702/images/emp-details.jpec)
+![signin](https://github.com/amitprajapati0702/OdooXGCET/blob/main/images/emp-details.jpeg)
 
 
 6. Leave Allocation Page
 
-![signin](https://github.com/amitprajapati0702/images/allocation.jpec)
+![signin](https://github.com/amitprajapati0702/OdooXGCET/blob/main/images/allocation.jpeg)
 
 
 7. Attendance Page
 
-![signin](https://github.com/amitprajapati0702/images/attandence.jpec)
+![signin](https://github.com/amitprajapati0702/OdooXGCET/blob/main/images/attandence.jpeg)
 
 
 8. Checkin Status
 
-![signin](https://github.com/amitprajapati0702/images/checkin-status.jpec)
+![signin](https://github.com/amitprajapati0702/OdooXGCET/blob/main/images/checkin-status.jpeg)
 
 
 9. Time off Page
 
-![signin](https://github.com/amitprajapati0702/images/time-off.jpec)
+![signin](https://github.com/amitprajapati0702/OdooXGCET/blob/main/images/time-off.jpeg)
