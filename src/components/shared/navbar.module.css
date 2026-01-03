@@ -1,126 +1,191 @@
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 1.5rem;
-    height: 60px;
-    background-color: white;
-    border-bottom: 1px solid #e2e8f0;
-    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 50;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5rem;
+  height: 60px;
+  background-color: white;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 50;
 }
 
 .left {
-    display: flex;
-    align-items: center;
-    gap: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
 }
 
 .brand {
-    font-weight: 700;
-    color: #1e293b;
-    font-size: 1.1rem;
+  font-weight: 700;
+  color: #1e293b;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+}
+
+.navLogo {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
 }
 
 .links {
-    display: flex;
-    gap: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
 }
 
 .link {
-    text-decoration: none;
-    color: #64748b;
-    font-weight: 500;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    transition: all 0.2s;
+  text-decoration: none;
+  color: #64748b;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.2s;
 }
 
 .link:hover {
-    background-color: #f1f5f9;
-    color: #0f172a;
+  background-color: #f1f5f9;
+  color: #0f172a;
 }
 
 .activeLink {
-    background-color: #e0e7ff;
-    /* Light indigo */
-    color: #4f46e5;
-    /* Primary Indigo */
-    font-weight: 600;
+  background-color: #e0e7ff;
+  /* Light indigo */
+  color: #4f46e5;
+  /* Primary Indigo */
+  font-weight: 600;
 }
 
 .right {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .statusDot {
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    border: 1px solid #e2e8f0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid #e2e8f0;
 }
 
 .statusRed {
-    background-color: #ef4444;
+  background-color: #ef4444;
 }
 
 .statusGreen {
-    background-color: #22c55e;
+  background-color: #22c55e;
 }
 
 .profile {
-    position: relative;
-    cursor: pointer;
+  position: relative;
+  cursor: pointer;
 }
 
 .avatar {
-    width: 36px;
-    height: 36px;
-    border-radius: 6px;
-    /* Square with rounded corners as per design (blue box next to dot) */
-    object-fit: cover;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  /* Square with rounded corners as per design (blue box next to dot) */
+  object-fit: cover;
 }
 
 .avatarPlaceholder {
-    width: 36px;
-    height: 36px;
-    border-radius: 6px;
-    background-color: #93c5fd;
-    /* Light blue */
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: 600;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  background-color: #93c5fd;
+  /* Light blue */
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
 }
 
 .dropdown {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    margin-top: 0.5rem;
-    background: white;
-    border: 1px solid #e2e8f0;
-    border-radius: 6px;
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-    min-width: 150px;
-    padding: 0.5rem 0;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.5rem;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  min-width: 150px;
+  padding: 0.5rem 0;
 }
 
 .menuItem {
-    padding: 0.5rem 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: #334155;
-    font-size: 0.9rem;
-    transition: background 0.2s;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #334155;
+  font-size: 0.9rem;
+  transition: background 0.2s;
 }
 
 .menuItem:hover {
-    background-color: #f8fafc;
+  background-color: #f8fafc;
+}
+
+.statusYellow {
+  background-color: #eab308;
+}
+
+.attendanceMenu {
+  padding: 1rem;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.menuLabel {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 0.5rem;
+}
+
+.checkInBtn {
+  background-color: #22c55e;
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.checkInBtn:hover {
+  opacity: 0.9;
+}
+
+.checkOutBtn {
+  background-color: #eab308; /* Yellow/Orange */
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.checkOutBtn:hover {
+  opacity: 0.9;
+}
+
+.completedMessage {
+  text-align: center;
+  color: #64748b;
+  font-size: 0.9rem;
+  padding: 0.5rem;
+  background-color: #f1f5f9;
+  border-radius: 4px;
 }

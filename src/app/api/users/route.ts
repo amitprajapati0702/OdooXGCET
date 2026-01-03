@@ -14,7 +14,7 @@ export async function GET() {
         await dbConnect();
 
         // Check current user role
-        const currentUserRole = (session.user as any).role;
+        const currentUserRole = session.user.role;
 
         let query: any = {};
 
@@ -38,7 +38,7 @@ export async function POST(req: Request) {
     try {
         const session = await getServerSession(authOptions);
         // Strict Admin check
-        if (!session || (session.user as any).role !== 'ADMIN') {
+        if (!session || session.user.role !== 'ADMIN') {
             return NextResponse.json({ message: 'Unauthorized' }, { status: 403 });
         }
 

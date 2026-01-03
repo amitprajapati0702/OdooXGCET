@@ -14,8 +14,8 @@ export async function GET(req: Request) {
         const statusFunc = searchParams.get('status'); // 'pending' or 'history'
 
         await dbConnect();
-        const role = (session.user as any).role;
-        const userId = (session.user as any).id;
+        const role = session.user.role;
+        const userId = session.user.id;
 
         let query: any = {};
 
@@ -28,8 +28,9 @@ export async function GET(req: Request) {
         if (statusFunc === 'pending') {
             query.status = 'PENDING';
         } else if (statusFunc === 'history') {
-            query.status = { $ne: 'PENDING' }; // Allocation tab shows History
-        }
+            query.status = { $ne: 'PENDING' };
+        } 
+        // If statusFunc is 'all' or null for employees who want to see everything, we don't add status filter (except maybe employeeId)
 
         const leaves = await Leave.find(query)
             .populate('employeeId', 'firstName lastName')
@@ -47,12 +48,12 @@ export async function POST(req: Request) {
         if (!session) return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
 
         await dbConnect();
-        const userId = (session.user as any).id;
+        const userId = session.user.id;
         const body = await req.json();
 
         // Handle "UPDATE STATUS" (Approve/Reject)
         if (body.action === 'updateStatus') {
-            if ((session.user as any).role !== 'ADMIN') {
+            if (session.user.role !== 'ADMIN') {
                 return NextResponse.json({ message: 'Unauthorized' }, { status: 403 });
             }
             const { leaveId, status } = body;
@@ -68,28 +69,27 @@ export async function POST(req: Request) {
 
             // If approved, decrement credit
             if (status === 'APPROVED') {
-                // Fetch leave details to know which credit to deduct
                 const user = await User.findById(leave.employeeId);
                 if (user) {
-                    // Map leave type to user schema credit field
-                    // Paid Time Off -> paid, Sick Leave -> sick
-                    let field = '';
+                    let field: 'paid' | 'sick' | 'unpaid' | '' = '';
                     if (leave.type === 'Paid Time Off') field = 'paid';
                     if (leave.type === 'Sick Leave') field = 'sick';
+                    if (leave.type === 'Unpaid Leave') field = 'unpaid';
 
-                    if (field && user.leaveCredits[field] >= leave.days) {
-                        user.leaveCredits[field] -= leave.days;
-                        await user.save();
-                    } else if (field) {
-                        // Allow negative or block? Design said "Auto validation... requires sufficient credits".
-                        // Rollback if insufficient?
-                        // For simplicity, we assume frontend checks, or we allow negative for now.
-                        user.leaveCredits[field] -= leave.days;
+                    if (field) {
+                        // Deduct days. We allow negative for now to prevent blocking if data is out of sync.
+                        if (!user.leaveCredits) user.leaveCredits = { paid: 0, sick: 0, unpaid: 0 };
+                        
+                        // Ensure it's treated as number
+                        const currentCredit = user.leaveCredits[field] || 0;
+                        user.leaveCredits[field] = currentCredit - leave.days;
+                        
+                        // Mark as modified if necessary (Mongoose sometimes needs this for nested objects)
+                        user.markModified('leaveCredits');
                         await user.save();
                     }
                 }
             }
-
             return NextResponse.json(leave);
         }
 
