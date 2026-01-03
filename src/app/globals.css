@@ -1,0 +1,60 @@
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --primary: #6c5ce7;
+  --secondary: #a29bfe;
+  --accent: #fd79a8;
+  --dark-bg: #1e1e2e;
+  --dark-card: #2d2d44;
+  --text-main: #ffffff;
+  --text-muted: #a0a0b0;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  font-family: 'Inter', sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  background: #f4f6f9;
+  color: #333;
+}
+
+/* Utilities */
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+}
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+}
+.btn-accent {
+  background-color: var(--accent);
+  color: white;
+}

@@ -1,0 +1,210 @@
+.container {
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    min-height: 600px;
+}
+
+.loading,
+.error {
+    padding: 2rem;
+    text-align: center;
+    color: #64748b;
+}
+
+.header {
+    padding: 2rem;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.avatarSection {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #f1f5f9;
+}
+
+.avatarPlaceholder {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #fca5a5;
+    /* Pinkish/Red from design */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.headerInfo h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+}
+
+.jobInfo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #64748b;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+}
+
+.dot {
+    font-size: 1.5rem;
+    line-height: 0;
+}
+
+.contactRow {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.contactItem {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    color: #475569;
+}
+
+.tabs {
+    display: flex;
+    border-bottom: 1px solid #e2e8f0;
+    background: #f8fafc;
+}
+
+.tab {
+    padding: 1rem 1.5rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #64748b;
+    border-right: 1px solid #e2e8f0;
+    transition: all 0.2s;
+}
+
+.tab:hover {
+    background-color: #f1f5f9;
+    color: #0f172a;
+}
+
+.activeTab {
+    background-color: white;
+    color: #0f172a;
+    font-weight: 600;
+    border-bottom: 2px solid #ef4444;
+    /* Active underline */
+}
+
+.content {
+    padding: 2rem;
+}
+
+.pane {
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section {
+    margin-bottom: 2rem;
+}
+
+.section h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 0.5rem;
+    width: fit-content;
+}
+
+.placeholderText {
+    color: #64748b;
+    line-height: 1.6;
+}
+
+.infoGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.field label {
+    display: block;
+    font-size: 0.875rem;
+    color: #64748b;
+    margin-bottom: 0.25rem;
+}
+
+.field span {
+    font-weight: 500;
+    color: #334155;
+}
+
+.salaryCard {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.salaryHeader {
+    display: flex;
+    gap: 3rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.salaryHeader .label {
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+.salaryHeader .amount {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.salaryTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.salaryTable td {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.salaryTable td:last-child {
+    text-align: right;
+    font-weight: 600;
+}

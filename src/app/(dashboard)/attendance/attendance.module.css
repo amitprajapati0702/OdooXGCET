@@ -1,0 +1,167 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.searchBarContainer {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background: white;
+    padding: 0.75rem 1rem;
+    border: 1px solid #000;
+    /* As per sketch border style */
+    border-radius: 4px;
+    /* Slightly rounded or sharp as per sketch looks sharp */
+}
+
+.pageTitle {
+    font-weight: 600;
+    font-size: 1.1rem;
+    min-width: 100px;
+}
+
+.searchBar {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    /* Sketch has rounded searchbar inside */
+    outline: none;
+    font-size: 1rem;
+    color: #cbd5e1;
+    /* Placeholder color style */
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: white;
+    padding: 0.5rem;
+    border: 1px solid #000;
+}
+
+.navGroup {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.navBtn {
+    padding: 0.25rem 0.75rem;
+    border: 1px solid #000;
+    background: white;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.dateDisplay {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+
+.datePickerWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    /* Show hand cursor */
+}
+
+.hiddenDateInput {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    pointer-events: none;
+    /* Let click pass to wrapper */
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dateLabelClickable {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    pointer-events: none;
+    /* Let click pass to wrapper */
+}
+
+.dateText {
+    border: 1px solid #000;
+    padding: 0.3rem 1rem;
+    font-weight: 500;
+    min-width: 150px;
+    text-align: center;
+    background: white;
+    /* Ensure bg to cover input if z-index issues, though input is transparent */
+}
+
+.dayLabel {
+    border: 1px solid #ccc;
+    /* Lighter border for day? Sketch shows grey box */
+    padding: 0.3rem 1rem;
+    color: #64748b;
+    background: #f1f5f9;
+}
+
+.tableCard {
+    background: white;
+    border: 1px solid #000;
+}
+
+.tableHeaderDate {
+    padding: 1rem;
+    border-bottom: 1px solid #000;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th {
+    text-align: left;
+    padding: 0.75rem 1rem;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.table th:last-child {
+    border-right: none;
+}
+
+.table td {
+    padding: 0.75rem 1rem;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+    /* Row separators */
+    color: #1e293b;
+}
+
+.table td:last-child {
+    border-right: none;
+}
+
+.table tr:last-child td {
+    border-bottom: none;
+}
+
+.empty {
+    text-align: center;
+    padding: 2rem;
+    color: #94a3b8;
+    border-right: none !important;
+}
