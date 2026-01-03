@@ -1,33 +1,37 @@
-'use client';
+"use client";
 
-import { SessionProvider, useSession } from 'next-auth/react';
-import { useRouter, usePathname } from 'next/navigation';
-import { useEffect } from 'react';
-import Navbar from '@/components/shared/Navbar';
+import { SessionProvider, useSession } from "next-auth/react";
+import { useRouter, usePathname } from "next/navigation";
+import { useEffect } from "react";
+import Navbar from "@/components/shared/Navbar";
 
 function ForceChangePasswordCheck() {
-    const { data: session } = useSession();
-    const router = useRouter();
-    const pathname = usePathname();
+  const { data: session } = useSession();
+  const router = useRouter();
+  const pathname = usePathname();
 
-    useEffect(() => {
-        // Cast to any to access custom property
-        if ((session?.user as any)?.forcePasswordChange && pathname !== '/change-password') {
-            router.push('/change-password');
-        }
-    }, [session, pathname, router]);
+  useEffect(() => {
+    // Cast to any to access custom property
+    if (session?.user?.forcePasswordChange && pathname !== "/change-password") {
+      router.push("/change-password");
+    }
+  }, [session, pathname, router]);
 
-    return null;
+  return null;
 }
 
-export default function DashboardLayout({ children }: { children: React.ReactNode }) {
-    return (
-        <SessionProvider>
-            <ForceChangePasswordCheck />
-            <div className="layout">
-                <Navbar />
-                <main className="main-content">{children}</main>
-                <style jsx global>{`
+export default function DashboardLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <SessionProvider>
+      <ForceChangePasswordCheck />
+      <div className="layout">
+        <Navbar />
+        <main className="main-content">{children}</main>
+        <style jsx global>{`
           .layout {
             min-height: 100vh;
             display: flex;
@@ -41,7 +45,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             width: 100%;
           }
         `}</style>
-            </div>
-        </SessionProvider>
-    );
+      </div>
+    </SessionProvider>
+  );
 }

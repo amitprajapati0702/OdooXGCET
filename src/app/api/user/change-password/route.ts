@@ -19,7 +19,7 @@ export async function POST(req: Request) {
             return NextResponse.json({ message: 'Password must be at least 6 characters' }, { status: 400 });
         }
 
-        const userId = (session.user as any).id;
+        const userId = session.user.id;
 
         await dbConnect();
 

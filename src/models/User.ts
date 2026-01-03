@@ -18,6 +18,14 @@ export interface IUser extends Document {
     joiningDate: Date;
     address?: string;
     phone?: string;
+    // New Profile Fields
+    about?: string;
+    jobLove?: string;
+    hobbies?: string;
+    skills?: string[];
+    certifications?: string[];
+    manager?: string;
+    location?: string;
     bankDetails?: {
         accountNumber: string;
         bankName: string;
@@ -26,9 +34,18 @@ export interface IUser extends Document {
         uanNo: string;
     };
     salary?: {
+        wage: number;
+        workingDays: number; // New
+        breakTime: number; // New, assuming hours
         basic: number;
-        allowances: number;
-        // other fields as needed
+        hra: number;
+        standardAllowance: number;
+        bonus: number;
+        lta: number;
+        fixedAllowance: number;
+        professionalTax: number;
+        pfEmployee: number;
+        pfEmployer: number;
     };
     leaveCredits: {
         sick: number;
@@ -54,6 +71,14 @@ const UserSchema: Schema = new Schema(
         joiningDate: { type: Date, default: Date.now },
         address: { type: String },
         phone: { type: String },
+        // New Profile Fields
+        about: { type: String },
+        jobLove: { type: String },
+        hobbies: { type: String },
+        skills: { type: [String], default: [] },
+        certifications: { type: [String], default: [] },
+        manager: { type: String },
+        location: { type: String },
         bankDetails: {
             accountNumber: { type: String },
             bankName: { type: String },
@@ -62,8 +87,18 @@ const UserSchema: Schema = new Schema(
             uanNo: { type: String },
         },
         salary: {
-            basic: { type: Number },
-            allowances: { type: Number },
+            wage: { type: Number, default: 0 },
+            workingDays: { type: Number, default: 5 },
+            breakTime: { type: Number, default: 1 },
+            basic: { type: Number, default: 0 },
+            hra: { type: Number, default: 0 },
+            standardAllowance: { type: Number, default: 0 },
+            bonus: { type: Number, default: 0 },
+            lta: { type: Number, default: 0 },
+            fixedAllowance: { type: Number, default: 0 },
+            professionalTax: { type: Number, default: 200 },
+            pfEmployee: { type: Number, default: 0 },
+            pfEmployer: { type: Number, default: 0 },
         },
         leaveCredits: {
             sick: { type: Number, default: 7 },
@@ -75,4 +110,8 @@ const UserSchema: Schema = new Schema(
     { timestamps: true }
 );
 
+// Force model rebuild in dev if schema changed
+if (process.env.NODE_ENV === 'development') {
+    delete mongoose.models.User;
+}
 export default mongoose.models.User || mongoose.model<IUser>('User', UserSchema);

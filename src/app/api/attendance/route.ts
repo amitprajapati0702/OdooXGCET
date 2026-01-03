@@ -20,8 +20,8 @@ export async function GET(req: Request) {
         let query: any = {};
 
         // If Admin, can filter by any employee. If Employee, only self.
-        const userRole = (session.user as any).role;
-        const userId = (session.user as any).id;
+        const userRole = session.user.role;
+        const userId = session.user.id;
 
         if (userRole === 'ADMIN') {
             if (employeeId) query.employeeId = employeeId;
@@ -58,7 +58,7 @@ export async function POST(req: Request) {
         if (!session) return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
 
         await dbConnect();
-        const userId = (session.user as any).id;
+        const userId = session.user.id;
         const body = await req.json();
         const { action } = body; // 'checkIn' or 'checkOut'
 
