@@ -1,0 +1,184 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    /* Removing gap to let tabs sit flush if needed, but managing spacing via padding */
+    padding: 1rem;
+}
+
+/* Tabs */
+.tabsHeader {
+    display: flex;
+    border-bottom: 1.5px solid #000;
+}
+
+.tabBtn {
+    padding: 0.75rem 2rem;
+    background: transparent;
+    border: 1px solid transparent;
+    border-bottom: none;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 1rem;
+    position: relative;
+    top: 1.5px;
+    /* Sits on the line */
+}
+
+.activeTab {
+    background: #fca5a5;
+    /* Light reddish background as per pic "Time Off" active */
+    border: 1.5px solid #000;
+    border-bottom: 2px solid #fca5a5;
+    /* Cover the bottom line? Or just basic style */
+    border-bottom: 1.5px solid #000;
+    /* Sketch implies full box? Let's assume standard tab active style from pic */
+    background: #ffbaba;
+    /* Matching the pinkish hue */
+    border-bottom: none;
+    /* Connect to content */
+    border: 1.5px solid #000;
+    border-bottom: 1px solid #fff;
+    /* Blend */
+}
+
+/* Specific override for Allocation if active? Pic shows Time Off active pink. 
+   If Allocation active, maybe white? 
+*/
+
+.actionBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.newBtn {
+    padding: 0.5rem 2rem;
+    background: #d946ef;
+    /* Purple */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.searchContainer {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.searchBar {
+    width: 300px;
+    padding: 0.5rem 1rem;
+    border: 1px solid #666;
+    /* rounded searchbar sketch */
+    border-radius: 20px;
+    text-align: center;
+    outline: none;
+}
+
+/* Stats */
+.statsPanel {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    border-bottom: 1.5px solid #000;
+}
+
+.statItem {
+    text-align: center;
+}
+
+.statTitle {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.statValue {
+    color: #333;
+    font-size: 0.95rem;
+}
+
+/* Table */
+.tableCard {
+    border: 1.5px solid #000;
+    border-top: none;
+    /* Connects to stats? Or separate? Sketch shows connected lines */
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th {
+    text-align: left;
+    padding: 1rem;
+    border-right: 1.5px solid #000;
+    border-bottom: 1.5px solid #000;
+    font-weight: 600;
+}
+
+.table td {
+    padding: 1rem;
+    border-right: 1.5px solid #000;
+    /* vertical lines as per sketch */
+    border-bottom: none;
+    /* Sketch shows vertical lines dominating */
+}
+
+.table tr {
+    /* border-bottom: 1px solid #eee; Optional row lines */
+}
+
+.empName {
+    font-weight: 500;
+}
+
+.actionsCell {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Custom Icons for Approve/Reject as per sketch (Red/Green Rects/Squares) */
+.rectIconRed {
+    width: 30px;
+    height: 18px;
+    background: #ef4444;
+    border-radius: 4px;
+    border: 1px solid #b91c1c;
+}
+
+.rectIconGreen {
+    width: 30px;
+    height: 18px;
+    background: #22c55e;
+    border-radius: 4px;
+    border: 1px solid #15803d;
+}
+
+.rejectBtn,
+.approveBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.rejectBtn:active,
+.approveBtn:active {
+    transform: scale(0.95);
+}
+
+.empty {
+    text-align: center;
+    color: #999;
+    padding: 2rem;
+}

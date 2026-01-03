@@ -1,0 +1,148 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.topBar {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* On desktop, align NEW and Search */
+@media (min-width: 640px) {
+    .topBar {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+.newButton {
+    padding: 0.5rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    background-color: #a855f7;
+    /* Purple accent */
+    color: white;
+    display: inline-block;
+    text-align: center;
+    transition: opacity 0.2s;
+}
+
+.newButton:hover {
+    opacity: 0.9;
+}
+
+.searchWrapper {
+    position: relative;
+    flex: 1;
+    max-width: 600px;
+}
+
+.searchIcon {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+}
+
+.searchInput {
+    width: 100%;
+    padding: 0.6rem 1rem 0.6rem 2.5rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    outline: none;
+    font-size: 0.95rem;
+    transition: border-color 0.2s;
+}
+
+.searchInput:focus {
+    border-color: var(--primary);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    /* Card width ~200px */
+    gap: 1.5rem;
+}
+
+.cardLink {
+    text-decoration: none;
+    color: inherit;
+}
+
+.card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+    cursor: pointer;
+    position: relative;
+}
+
+.card:hover {
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+.cardHeader {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+}
+
+.statusDot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ef4444;
+    /* Default Red, mock logic later */
+    border: 2px solid white;
+}
+
+.cardBody {
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    background-color: #f1f5f9;
+    /* Fallback color */
+    border-radius: 4px;
+    /* As per design, slightly rounded square */
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.avatarPlaceholder {
+    width: 80px;
+    height: 80px;
+    background-color: #93c5fd;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 0.25rem;
+}
+
+.role {
+    font-size: 0.875rem;
+    color: #64748b;
+}
