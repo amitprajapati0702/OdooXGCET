@@ -79,6 +79,9 @@ The Dayflow HRMS is a digital solution designed to streamline core HR operations
 - `Git` installed for version control.
 - `Node.js` or your specific backend environment.
 - `Database` configuration (ensure your local environment matches the `.env` settings).
+- `Config` please create and change .env.local file and review .env.example for reference.
+- <strong> Admin/HR Email: `admin@dayflow.com` | Password: `adminpassword` </strong>
+- Note: This credentials would be stored as encrypted base64 format.
 
 #### Commands
 1. `npm install` (to install project dependencies)
